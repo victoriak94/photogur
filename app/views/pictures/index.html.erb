@@ -1,8 +1,6 @@
 
 
 
-
-
 <h1>Pictures (<%= @pictures.length %>)</h1>
 <%= link_to("New Picture", "/pictures/new") %>
 
@@ -10,3 +8,24 @@
   <p><%= picture.title %>, <%= picture.artist %></p>
   <img src="<%= picture.url %>" alt="<%= picture.title %>">
 <% end %>
+
+<h1>Most recent pictures</h1>
+<ul>
+  <% @most_recent_pictures.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
+
+<h1>Pictures from one month ago</h1>
+  <ul>
+    <%= @pictures_older_than_one_month.each do |picture| %>
+      <li><%= picture.title %></li>
+    <% end %>
+  </ul>
+
+<h1>Pictures from 2018<h1>
+  <ul>
+    <% @pictures_2018.each do |picture| %>
+    <li><%= picture.title %></li>
+    <% end %>
+  </ul>
